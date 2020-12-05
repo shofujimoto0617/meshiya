@@ -8,4 +8,79 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    /header.navbar.navbar-static-top.navbar-inverse
+
+      nav.container
+        navbar-header
+        ul.nav.navbar-nav.navbar-right
+          - if admin_signed_in?
+            li.nav-item= link_to 'TOP', admin_homes_top_path, class: 'nav-link'
+            li.nav-item= link_to '商品登録', new_admin_item_path, class: 'nav-link'
+            li.nav-item= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link'
+          - else
+            li.nav-item= link_to 'TOP', root_path, class: 'nav-link'
+            li.nav-item= link_to '管理者ログイン', new_admin_session_path, class: 'nav-link'
+
+
+    /#global-container
+      #container
+        .mobile-menu__cover
+        header.header
+          button.mobile-menu__btn
+            span
+            span
+            span
+
+        = yield
+
+      nav.mobile-menu
+        ul.mobile-menu__main
+          - if admin_signed_in?
+            li.mobile-menu__item
+              = link_to admin_homes_top_path, class: 'mobile-menu__link' do
+                span.main-title TOP
+            li.mobile-menu__item
+              = link_to new_admin_item_path, class: 'mobile-menu__link' do
+                span.main-title 商品登録
+            li.mobile-menu__item
+              = link_to destroy_admin_session_path, method: :delete, class: 'mobile-menu__link' do
+                span.main-title ログアウト
+          - else
+            li.mobile-menu__item
+              = link_to 'TOP', root_path, class: 'mobile-menu__link'
+            li.mobile-menu__item
+              = link_to '管理者ログイン', new_admin_session_path, class: 'mobile-menu__link'
+
+
+    #global-container
+      #container
+        header.header
+          button.mobile-menu__btn
+            span
+            span
+            span
+        nav.mobile-menu
+          ul.mobile-menu__main
+            - if admin_signed_in?
+              li.mobile-menu__item
+                = link_to admin_homes_top_path, class: 'mobile-menu__link' do
+                  span.main-title TOP
+                  span.sub-title トップページ
+              li.mobile-menu__item
+                = link_to new_admin_item_path, class: 'mobile-menu__link' do
+                  span.main-title ENTRY
+                  span.sub-title 商品登録
+              li.mobile-menu__item
+                = link_to destroy_admin_session_path, method: :delete, class: 'mobile-menu__link' do
+                  span.main-title LOG OUT
+                  span.sub-title ログアウト
+            - else
+              li.mobile-menu__item
+                = link_to root_path, class: 'mobile-menu__link' do
+                  span.main-title TOP
+                  span.sub-title トップページ
+              li.mobile-menu__item
+                = link_to new_admin_session_path, class: 'mobile-menu__link' do
+                  span.main-title MASTER
+                  span.sub-title 管理者ログイン
+
