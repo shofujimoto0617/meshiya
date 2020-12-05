@@ -22,7 +22,7 @@ html
             li.nav-item= link_to '管理者ログイン', new_admin_session_path, class: 'nav-link'
 
 
-    #global-container
+    /#global-container
       #container
         .mobile-menu__cover
         header.header
@@ -30,6 +30,9 @@ html
             span
             span
             span
+
+        = yield
+
       nav.mobile-menu
         ul.mobile-menu__main
           - if admin_signed_in?
@@ -48,4 +51,36 @@ html
             li.mobile-menu__item
               = link_to '管理者ログイン', new_admin_session_path, class: 'mobile-menu__link'
 
-    = yield
+
+    #global-container
+      #container
+        header.header
+          button.mobile-menu__btn
+            span
+            span
+            span
+        nav.mobile-menu
+          ul.mobile-menu__main
+            - if admin_signed_in?
+              li.mobile-menu__item
+                = link_to admin_homes_top_path, class: 'mobile-menu__link' do
+                  span.main-title TOP
+                  span.sub-title トップページ
+              li.mobile-menu__item
+                = link_to new_admin_item_path, class: 'mobile-menu__link' do
+                  span.main-title ENTRY
+                  span.sub-title 商品登録
+              li.mobile-menu__item
+                = link_to destroy_admin_session_path, method: :delete, class: 'mobile-menu__link' do
+                  span.main-title LOG OUT
+                  span.sub-title ログアウト
+            - else
+              li.mobile-menu__item
+                = link_to root_path, class: 'mobile-menu__link' do
+                  span.main-title TOP
+                  span.sub-title トップページ
+              li.mobile-menu__item
+                = link_to new_admin_session_path, class: 'mobile-menu__link' do
+                  span.main-title MASTER
+                  span.sub-title 管理者ログイン
+
