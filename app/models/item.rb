@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  belongs_to :genre
+
   attachment :img
 
   validates :name, presence: true, length: {maximum: 15}

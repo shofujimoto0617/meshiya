@@ -5,6 +5,9 @@ $cMenuClose: $cBlack;
 $cMenuOpen: $cBlack;
 $cSubTitle: #535353;
 
+/*application.html
+------------------------------------------------------*/
+
 #container {
 	position: relative;
 	background-color: $cWhite;
@@ -128,6 +131,9 @@ body {
 	}
 }
 
+/*admin(item,genre)
+------------------------------------------------------*/
+
 .main-title {
 	font-weight: 600;
 	font-size: 25px;
@@ -146,6 +152,7 @@ body {
 }
 .admin-main {
 	margin-top: 50px;
+	text-align: center;
 
 	& .form-group {
 		text-align: center;
@@ -194,13 +201,33 @@ body {
 		text-align: center;
 		margin: 50px 0;
 
-		& .input_btn__new {
+		& .input_btn__btn {
 		    width: 160px;
             height: 40px;
             border-radius: 10px;
             font-weight: 500;
             font-size: 18px;
 	    }
+	}
+
+	& .genre_title {
+		font-weight: 600;
+	    font-size: 14px;
+	}
+
+	& .genre_text {
+		margin: 10px auto;
+
+		& input[type="text"] {
+			width: 300px;
+            height: 40px;
+		}
+	}
+
+	& .genre_button {
+        margin-top: 20px;
+
+		& label {}
 	}
 }
 

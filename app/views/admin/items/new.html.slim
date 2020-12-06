@@ -36,7 +36,7 @@
       .form-group
         = f.label :explanation, '商品説明'
         = f.text_area :explanation, placeholder: "商品内容を入力してください", class: 'text'
-      /.form-group
+      .form-group
         = f.label :genre, 'ジャンル'
         = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
       .form-group
@@ -47,5 +47,5 @@
         = f.select :status, [["販売中", true],["販売中止", false]], include_blank: "選択してください"
 
       .input_btn
-        = f.submit "新規登録", class: 'input_btn__new'
+        = f.submit "新規登録", class: 'input_btn__btn'
 
