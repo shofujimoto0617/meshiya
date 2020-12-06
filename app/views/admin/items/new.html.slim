@@ -2,11 +2,34 @@
 
   .admin-title メニュー登録
   .admin-main
-    = form_for(@item, url: admin_items_path, html: {method: :post, class: "form-horizontal"}) do |f|
+    = form_for(@item, url: admin_items_path, html: {method: :post}) do |f|
       = render 'shared/error_messages', { model: f.object }
       .form-group
-        = f.label :img, '商品画像'
-        = f.attachment_field :img
+        /= f.label :img, '商品画像'
+        /= f.attachment_field :img
+
+        /= f.file_field :img, class: 'img_field'
+        /= attachment_image_tag @item, :img, fallback: 'no_image.jpg', class: 'center-block img-thumbnail img-responsive img_prev'
+
+        - if @item.img.present?
+          .form-img-uploader__saved-img
+            span.form-img-uploader__saved-img-inner
+              = image_tag item.img.to_s
+          .block-toggle
+            .block-toggle__press
+              btn btn-outline-secondary
+                p 画像を変更する
+            .block-toggle__content style="display:none;"
+              .label for="item_img" class="form-img-uploader__preview"
+                = image_tag 'no_image.jpg'
+              = f.file_field :img, class: 'form-image-uploader__save'
+              = f.hidden_field :img_cache, class: 'form-img-uploader__cache'
+        - else
+          label for="item_img" class="form-img-uploader__preview"
+            = image_tag 'no_image.jpg'
+          = f.file_field :img, class:'form-img-uploader__save', style: "display:none;"
+          = f.hidden_field :img, class:'form-img-uploader__cache'
+
       .form-group
         = f.label :name, '商品名'
         = f.text_field :name, placeholder: "商品名を入力してください", class: 'title'
@@ -18,7 +41,7 @@
         = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
       .form-group
         = f.label :price, "税抜価格"
-        = f.number_field :price, placeholder: "※ 半角英数字' , 'なし"
+        = f.number_field :price, placeholder: "半角英数字 ',' なし"
       .form-group
         = f.label :status, "販売ステータス"
         = f.select :status, [["販売中", true],["販売中止", false]], include_blank: "選択してください"
