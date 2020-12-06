@@ -1,2 +1,6 @@
-h1 Admin::Items#show
-p Find me in app/views/admin/items/show.html.slim
+.container
+
+  .admin-title 商品詳細
+  .admin-main
+    .admin-main__img
+      = attachment_image_tag @item, :img
