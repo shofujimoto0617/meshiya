@@ -227,7 +227,10 @@ body {
 	& .genre_button {
         margin-top: 20px;
 
-		& label {}
+		& input[type="radio"] {
+			cursor: pointer;
+			margin: 0 5px;
+		}
 	}
 }
 
