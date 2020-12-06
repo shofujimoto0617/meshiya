@@ -96,6 +96,8 @@ body {
 		box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
 	}
 	& .mobile-menu {
+		font-family: 'M PLUS Rounded 1c', sans-serif;
+
 		&__cover {
 			opacity: 1;
 			visibility: visible;
@@ -140,19 +142,21 @@ body {
 }
 .sub-title {
 	display: block;
-	font-size: 14px;
+	font-size: 18px;
 	color: $cSubTitle;
 }
 
 .admin-title {
 	font-weight: bolder;
-	font-size: 30px;
+	font-size: 40px;
 	margin-top: 25px;
 	text-align: center;
+	font-family: 'Noto Serif JP', serif;
 }
 .admin-main {
 	margin-top: 50px;
 	text-align: center;
+	font-family: 'Noto Serif JP', serif;
 
 	& .form-group {
 		text-align: center;
@@ -212,7 +216,7 @@ body {
 
 	& .genre_title {
 		font-weight: 600;
-	    font-size: 14px;
+	    font-size: 18px;
 	}
 
 	& .genre_text {
@@ -225,6 +229,7 @@ body {
 	}
 
 	& .genre_button {
+		font-size: 15px;
         margin-top: 20px;
 
 		& input[type="radio"] {
