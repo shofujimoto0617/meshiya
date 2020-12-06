@@ -7,7 +7,7 @@ $cSubTitle: #535353;
 
 #container {
 	position: relative;
-	background-color: teal;
+	background-color: $cWhite;
 	height: 100vh;
 	z-index: 2;
 	transition: all 0.5s;
@@ -84,6 +84,7 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	border-bottom: solid 1px $cBlack;
 }
 
 .menu-open {
@@ -135,5 +136,57 @@ body {
 	display: block;
 	font-size: 14px;
 	color: $cSubTitle;
+}
+
+.admin-title {
+	font-weight: bolder;
+	font-size: 30px;
+	margin-top: 25px;
+	text-align: center;
+}
+.admin-main {
+	margin-top: 50px;
+
+	& .form-group {
+		text-align: center;
+		margin: 15px auto 25px;
+
+		& > label {
+			display: block;
+			font-size: 20px;
+		}
+		& > input.title {
+			width: 40%; /* 幅 */
+            margin: 1em 0; /* 周囲の余白 */
+            padding: 0.4em; /* 枠線内の余白 */
+            font-size: 1em; /* フォントサイズ */
+            border: solid 1px $cBlack; /* 枠線のスタイル */
+            border-radius: 4px; /* 角丸に */
+            margin: 0 auto;
+		}
+		& > textarea.text {
+            width: 80%; /* 幅 */
+            margin: 1em 0; /* 周囲の余白 */
+            padding: 0.5em; /* 枠線内の余白 */
+            font-size: 1em; /* フォントサイズ */
+            border: solid 1px $cBlack; /* 枠線のスタイル */
+            border-radius: 4px; /* 角丸に */
+            // resize: none; /* リサイズ不可に */
+            margin: 0 auto;
+        }
+	}
+
+	& .input_btn {
+		text-align: center;
+		margin: 50px 0;
+
+		& .input_btn__new {
+		    width: 160px;
+            height: 40px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 18px;
+	    }
+	}
 }
 
