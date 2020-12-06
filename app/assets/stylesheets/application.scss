@@ -164,6 +164,9 @@ body {
             border-radius: 4px; /* 角丸に */
             margin: 0 auto;
 		}
+		& > input.img_field {
+            display: none;
+        }
 		& > textarea.text {
             width: 80%; /* 幅 */
             margin: 1em 0; /* 周囲の余白 */
@@ -174,7 +177,18 @@ body {
             // resize: none; /* リサイズ不可に */
             margin: 0 auto;
         }
-	}
+    }
+
+    & .img_prev:hover {
+        cursor: pointer;
+        opacity: 0.7;
+        transform: scale(1.01, 1.01);
+    }
+
+    & .datetime-form {
+ 	    display: inline-block;
+ 	    width: auto;
+    }
 
 	& .input_btn {
 		text-align: center;
@@ -188,5 +202,66 @@ body {
             font-size: 18px;
 	    }
 	}
+}
+
+/*form-image-uploader
+------------------------------------------------------*/
+.form-img-uploader {
+  @at-root {
+    #{&}__saved-img {
+      margin-bottom: 1em;
+
+      @at-root {
+        #{&}-inner {
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+          display: inline-block;
+        }
+      }
+
+      img {
+        max-height: 300px;
+      }
+    }
+
+    #{&}__preview {
+      width: 250px;
+      height: 250px;
+      display: inline-block;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      position: relative;
+      cursor: pointer;
+      margin: 0 auto;
+
+      img {
+        max-width: 250px;
+        width: auto;
+        max-height: 250px;
+        height: 100%;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+/*block-toggle
+------------------------------------------------------*/
+.block-toggle {
+  @at-root {
+    #{&}__press {
+      cursor: pointer;
+      margin-bottom: 0.5em;
+    }
+
+    #{&}__content {
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      padding: 0.5em;
+    }
+  }
 }
 
