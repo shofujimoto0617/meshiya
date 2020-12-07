@@ -329,6 +329,11 @@ body {
     #{&}__press {
       cursor: pointer;
       margin-bottom: 0.5em;
+
+      & btn.btn {
+      	background-color: rgb(239, 239, 239);
+      	border: 2px solid #ced4da;
+      }
     }
 
     #{&}__content {
