@@ -5,11 +5,6 @@
     = form_for(@item, url: admin_items_path, html: {method: :post}) do |f|
       = render 'shared/error_messages', { model: f.object }
       .form-group
-        /= f.label :img, '商品画像'
-        /= f.attachment_field :img
-
-        /= f.file_field :img, class: 'img_field'
-        /= attachment_image_tag @item, :img, fallback: 'no_image.jpg', class: 'center-block img-thumbnail img-responsive img_prev'
 
         - if @item.img.present?
           .form-img-uploader__saved-img
