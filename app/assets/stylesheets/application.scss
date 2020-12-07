@@ -214,6 +214,37 @@ body {
 	    }
 	}
 
+/*admin(item)
+------------------------------------------------------*/
+
+    & .admin-main__img {
+    	margin-bottom: 30px;
+    	& .img {
+    		width: 250px;
+    		height: 250px;
+    	}
+    }
+
+    & .admin-main__items {
+    	margin-top: 15px;
+
+    	& .title {
+    		font-weight: 600;
+	        font-size: 20px;
+    	}
+    	& .title-data {
+    		font-size: 16px;
+    		margin-top: 5px;
+    	}
+    }
+
+    & .link_btn {
+    	margin: 50px auto;
+    }
+
+/*admin(genre)
+------------------------------------------------------*/
+
 	& .genre_title {
 		font-weight: 600;
 	    font-size: 18px;
