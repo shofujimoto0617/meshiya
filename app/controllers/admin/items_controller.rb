@@ -19,10 +19,16 @@ class Admin::ItemsController < ApplicationController
   def create
   	@item = Item.new(item_params)
   	if @item.save
-  	  redirect_to admin_item_path(@item), notice: "メニューを追加しました"
+  	  redirect_to admin_item_path(@item), notice: "「#{@item.name}」を追加しました"
   	else
   	  render 'new'
   	end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to admin_items_path, notice: "「#{@item.name}」を削除しました"
   end
 
   private

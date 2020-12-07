@@ -19,5 +19,5 @@
               = item.price.to_s(:delimited)
               | 円
             td= item.status_text
-            td= link_to "削除", admin_item_path(item), method: :delete
+            td= link_to "削除", admin_item_path(item), method: :delete, data: {confirm: "メニュー「#{item.name}」を削除します。よろしいですか？"}
 
