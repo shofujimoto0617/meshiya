@@ -14,6 +14,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -23,6 +24,12 @@ class Admin::ItemsController < ApplicationController
   	else
   	  render 'new'
   	end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admin_items_path, notice: "「#{@item.name}」を変更しました"
   end
 
   def destroy
