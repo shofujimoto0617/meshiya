@@ -1,0 +1,24 @@
+.container
+
+  .admin-title コース登録
+  .admin-main
+    = form_with model: @course, url: admin_courses_path, html: {method: :post} do |f|
+      = render 'shared/error_messages', { model: f.object }
+      .form-group
+        = f.label :course_name, 'コース名'
+        = f.text_field :course_name, placeholder: "コース名を入力してください", class: 'title'
+      .form-group
+        = f.label :course_explanation, 'コース説明'
+        = f.text_area :explanation, placeholder: "商品内容を入力してください", class: 'text'
+      .form-group
+        = f.label :course_price, "税抜価格"
+        = f.number_field :course_price, placeholder: "半角英数字 ',' なし"
+      .form-group
+        = f.label :course_time, 'コース時間'
+        = f.select :course_time, Course.course_times.keys, {}
+      .form-group
+        = f.label :genre, 'ジャンル'
+        = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
+
+      .input_btn
+        = f.submit "新規登録", class: 'input_btn__btn'

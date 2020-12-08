@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	get 'homes/top' => 'homes#top'
   	resources :items
+    resources :courses
     resources :genres, only: [:index, :edit, :create, :update]
   end
 

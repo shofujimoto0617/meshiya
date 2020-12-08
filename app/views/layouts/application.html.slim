@@ -36,6 +36,10 @@ html
                 span.main-title Genre
                 span.sub-title ジャンル
             li.mobile-menu__item
+              = link_to new_admin_course_path, class: 'mobile-menu__link' do
+                span.main-title COURSE
+                span.sub-title コース登録
+            li.mobile-menu__item
               = link_to new_admin_item_path, class: 'mobile-menu__link' do
                 span.main-title ENTRY
                 span.sub-title 商品登録
