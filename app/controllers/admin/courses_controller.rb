@@ -25,6 +25,6 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-  	params.require(:course).permit(:genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, course_images_images: [])
+  	params.require(:course).permit(:genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, course_images_attributes: [:course_image])
   end
 end
