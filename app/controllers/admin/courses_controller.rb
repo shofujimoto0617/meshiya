@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
   def index
+  	@courses = Course.all
   end
 
   def new
@@ -20,6 +21,15 @@ class Admin::CoursesController < ApplicationController
   	else
   	  render 'new'
   	end
+  end
+
+  def update
+  end
+
+  def destroy
+  	@course = Course.find(params[:id])
+  	@course.destroy
+  	redirect_to admin_courses_path, notice: "「#{@course.course_name}」を削除しました"
   end
 
   private
