@@ -16,4 +16,9 @@ class Course < ApplicationRecord
   		"販売中止"
   	end
   end
+
+  def self.price_tax(course_price)
+  	price_tax = course_price.to_i * 1.10
+  	@price_tax = price_tax.round
+  end
 end

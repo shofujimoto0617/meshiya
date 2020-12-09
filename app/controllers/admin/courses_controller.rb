@@ -9,6 +9,9 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
+  	@course = Course.find(params[:id])
+  	course_price = @course.course_price
+  	@price_tax = Course.price_tax(course_price)
   end
 
   def edit
