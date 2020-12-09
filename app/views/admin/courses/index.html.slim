@@ -1,0 +1,29 @@
+.container
+
+  .admin-title コース商品　一覧
+  .admin-main
+    table.table
+      thead
+        tr
+          th コースメニュー ID
+          th 商品名
+          th 税抜価格
+          th ステータス
+          th
+      tbody
+        - @courses.each do |course|
+          tr
+            td= course.id
+            td= link_to course.course_name, admin_course_path(course)
+            td
+              = course.course_price.to_s(:delimited)
+              | 円
+            td= course.status_text
+            td= link_to "削除", admin_course_path(course), method: :delete, data: {confirm: "コースメニュー「#{course.course_name}」を削除します。よろしいですか？"}
+
+
+    /- @courses.each do |course|
+      .admin-main__course_img
+        - course.course_images.each do |courseimage|
+          = image_tag courseimage.course_image.to_s
+

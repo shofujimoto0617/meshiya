@@ -74,3 +74,6 @@ gem 'jquery-rails'
 
 gem 'pry-byebug'
 gem 'bootstrap-sass'
+
+gem 'carrierwave'
+gem 'mini_magick'

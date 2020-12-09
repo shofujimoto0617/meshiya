@@ -1,2 +1,28 @@
-h1 Admin::Items#show
-p Find me in app/views/admin/items/show.html.slim
+.container
+
+  .admin-title 商品詳細
+  .admin-main
+    .admin-main__img
+      = attachment_image_tag @item, :img
+
+    .admin-main__items
+      .title 商品名
+      .title-data= @item.name
+    .admin-main__items
+      .title 商品説明
+      .title-data= @item.explanation
+    .admin-main__items
+      .title ジャンル
+      .title-data= @item.genre.name
+    .admin-main__items
+      .title 税込価格 (税抜価格)
+      .title-data
+      = "#{@price_tax}円"
+      = "(#{@item.price}円)"
+    .admin-main__items
+      .title 販売ステータス
+      .title-data= @item.status_text
+
+    .link_btn
+      = link_to "編集する", edit_admin_item_path(@item)
+
