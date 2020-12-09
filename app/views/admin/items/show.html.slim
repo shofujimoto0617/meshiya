@@ -10,15 +10,15 @@
       .title-data= @item.name
     .admin-main__items
       .title 商品説明
-      .title-data= @item.explanation
+      .title-data-item= @item.explanation
     .admin-main__items
       .title ジャンル
       .title-data= @item.genre.name
     .admin-main__items
       .title 税込価格 (税抜価格)
       .title-data
-      = "#{@price_tax}円"
-      = "(#{@item.price}円)"
+        = "#{@price_tax}円"
+        = "(#{@item.price}円)"
     .admin-main__items
       .title 販売ステータス
       .title-data= @item.status_text
