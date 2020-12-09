@@ -137,12 +137,12 @@ body {
 ------------------------------------------------------*/
 
 .main-title {
-	font-weight: 600;
-	font-size: 25px;
+	font-weight: 450;
+	font-size: 20px;
 }
 .sub-title {
 	display: block;
-	font-size: 18px;
+	font-size: 13px;
 	color: $cSubTitle;
 }
 
@@ -276,6 +276,17 @@ body {
 			margin: 0 5px;
 		}
 	}
+/*admin(course)
+------------------------------------------------------*/
+    & .admin-main__course_img {
+    	display: inline-block;
+
+    	& img {
+    		width: 150px;
+    		height: 150px;
+    		margin: 5px;
+    	}
+    }
 }
 
 /*form-image-uploader
