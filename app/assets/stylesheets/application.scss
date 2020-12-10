@@ -134,6 +134,84 @@ body {
 	}
 }
 
+/*end_user
+------------------------------------------------------*/
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.container-fluid {
+	background-image: url(bgc.png);
+	background-size: container;
+	color: $cWhite;
+
+	& .eu-title {
+	    font-size: 30px;
+	    text-align: center;
+	    padding: 30px 0;
+	    font-family: 'Noto Serif JP', serif;
+    }
+
+    & .eu-main {
+    	font-family: 'Noto Serif JP', serif;
+    	margin: 15px 0;
+
+    	&__menu {
+    		border-top: 1px dotted #eeb3b3;
+
+    		& .eu-main__items {
+    		    margin: 50px 0;
+
+    		    & .item-img {
+    			    float: right;
+                    overflow: hidden;
+                    width: 333px;
+                    max-height: 333px;
+                    margin-left: 35px;
+                    text-align: center;
+
+    			    & > img {
+    				    vertical-align: middle;
+                        max-width: 333px;
+                        max-height: 333px;
+    			    }
+    		    }
+
+    		    & .item-home {
+    			    overflow: hidden;
+    			    padding-left: 10px;
+
+    			    & .item-name {
+    			        width: 90%;
+    			        padding: 5px 0 5px 5px;
+    			        background-color: #333;
+    			        font-size: 23px;
+    		        }
+
+    		        & .item-price {
+    			        width: 90%;
+    			        padding: 10px 0;
+    			        display: inline-block;
+    			        color: #dc5858;
+    			        font-size: 16px;
+    		        }
+
+    		        & .item-explanation {
+    			        width: 90%;
+    			        height: 200px;
+    			        margin-bottom: 10px;
+    			        display: inline-block;
+    		        }
+    		    }
+    	    }
+    	}
+    }
+}
+
+
 /*admin(item,genre,course)
 ------------------------------------------------------*/
 
@@ -508,4 +586,5 @@ body {
         }
     }
 }
+
 
