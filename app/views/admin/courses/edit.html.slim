@@ -1,2 +1,66 @@
-h1 Admin::Courses#edit
-p Find me in app/views/admin/courses/edit.html.slim
+.container
+
+  .admin-title コース編集
+  .admin-main
+    = form_with model: @course, url: admin_course_path, html: {method: :patch} do |f|
+      = render 'shared/error_messages', { model: f.object }
+
+      .course__block__form
+        .course__block__form__upload
+          h3.course__block__form__upload__head
+            | コース画像
+            span.require 必須
+          p 最大5枚までアップロードできます
+          .course__drop__box__container
+            .prev-content
+              - @course.course_images.each do |courseimage|
+                .preview-box
+                  .upper-box
+                    = image_tag courseimage.course_image.to_s, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        span 削除
+            .label-content
+              /= f.label :"course_images_attributes_#{@course.course_images.length}"_image" class: "label-box" id: "label-box--#{@course.course_images.length}" do
+
+            .hidden-content
+              = f.fields_for :course_images do |ci|
+                = ci.file_field :course_image, class: "hidden-field"
+                = ci.check_box:_destroy, class: "hidden-checkbox"
+              - @course.course_images.length.upto(4) do |ci|
+                input name= "course[course_images_attributes][#{ci}][course_image]" id= "course_images_attributes_#{ci}_image" class="hidden-field" type="file"
+
+
+
+      .form-group
+        = f.label :course_name
+          | コース名
+          span.require 必須
+        = f.text_field :course_name, placeholder: "コース名を入力してください", class: 'title'
+      .form-group
+        = f.label :course_explanation, 'コース説明'
+        = f.text_area :course_explanation, placeholder: "コース内容を入力してください", class: 'text-course'
+      .form-group
+        = f.label :course_price
+          | 税抜価格
+          span.require 必須
+        = f.number_field :course_price, placeholder: "半角英数字 ',' なし"
+      .form-group
+        = f.label :course_time
+          | コース時間
+          span.require 必須
+        = f.select :course_time, Course.course_times.keys, {}
+      .form-group
+        = f.label :genre
+          | ジャンル
+          span.require 必須
+        = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
+      .form-group
+        = f.label :status, "販売ステータス"
+        = f.select :status, [["販売中", true],["販売中止", false]], include_blank: "選択してください"
+
+      .input_btn
+        = f.submit "新規登録", class: 'input_btn__btn'

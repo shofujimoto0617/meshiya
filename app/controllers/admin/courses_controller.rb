@@ -15,6 +15,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
+  	@course = Course.find(params[:id])
   end
 
   def create
