@@ -18,6 +18,24 @@ $(document).on('turbolinks:load', function() {
 			return html;
 		}
 
+		if (window.location.href.macth(/\/admin\/courses\/\d+\/edit/)) {
+			var prevContent = $('.label-content').prev();
+			labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+			$('.label-content').css('width', labelWidth);
+			$('preview-box').each(function(index, box) {
+				$(box).attr('id', `preview-box__${index}`);
+			})
+			$('.delete-box').each(function(index, box) {
+				$(box).attr('id', `delete_btn_${index}`);
+			})
+			var count = $('.preview-box').length;
+			if (count == 5) {
+				$('.label-content').hide();
+			}
+		}
+
+//=============================================================================
+
 		function setLabel() {
 			var prevContent = $('.label-content').prev();
 			labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -44,6 +62,12 @@ $(document).on('turbolinks:load', function() {
 				if (count == 5) {
                     $('.label-content').hide();
                 }
+
+                if ($(`#course_images_attributes_${id}__destroy`)) {
+                	$(`#course_images_attributes_${id}__destroy`).prop('checked',false);
+                }
+//=============================================================================
+
                 setLabel();
                 if(count < 5){
                 	$('.label-box').attr({id: `label-box--${count}`,for: `course_images_attributes_${count}_image`});
@@ -56,17 +80,31 @@ $(document).on('turbolinks:load', function() {
             setLabel(count);
             var id = $(this).attr('id').replace(/[^0-9]/g, '');
             $(`#preview-box__${id}`).remove();
-            console.log("new")
-            $(`#course_images_attributes_${id}_image`).val("");
-            var count = $('.preview-box').length;
-            if (count == 4) {
-                $('.label-content').show();
-            }
-            setLabel(count);
 
-            if(id < 5){
-            	$('.label-box').attr({id: `label-box--${id}`,for: `course_images_attributes_${id}_image`});
-            }
+//=============================================================================
+
+            if ($(`#course_images_attributes_${id}__destroy`).length == 0) {
+            	$(`#course_images_attributes_${id}_image`).val("");
+            	var count = $('.preview-box').length;
+            	if (count == 4) {
+                    $('.label-content').show();
+                }
+                setLabel(count);
+                if(id < 5){
+            	    $('.label-box').attr({id: `label-box--${id}`,for: `course_images_attributes_${id}_image`});
+                }
+		    } else {
+		    	$(`#course_images_attributes_${id}__destroy`).prop('checked',true);
+		    	if (count == 4) {
+                    $('.label-content').show();
+                }
+
+                setLabel(count);
+
+                if(id < 5){
+            	    $('.label-box').attr({id: `label-box--${id}`,for: `course_images_attributes_${id}_image`});
+                }
+		    }
         });
 	});
 })

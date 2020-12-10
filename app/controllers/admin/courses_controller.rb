@@ -15,6 +15,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
+  	@course = Course.find(params[:id])
   end
 
   def create
@@ -27,6 +28,9 @@ class Admin::CoursesController < ApplicationController
   end
 
   def update
+  	@course = Course.find(params[:id])
+  	@course.update(course_update_params)
+  	redirect_to admin_courses_path, notice: "「#{@course.course_name}」を変更しました"
   end
 
   def destroy
@@ -39,5 +43,11 @@ class Admin::CoursesController < ApplicationController
 
   def course_params
   	params.require(:course).permit(:genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, course_images_attributes: [:course_image])
+  end
+
+  def course_update_params
+    params.require(:course).permit(
+      :genre_id, :course_name, :course_price, :course_explanation, :course_time, :status,
+      [course_images_attributes: [:course_image, :_destroy, :id]])
   end
 end
