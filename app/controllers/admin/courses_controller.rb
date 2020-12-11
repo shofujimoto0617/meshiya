@@ -42,12 +42,12 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-  	params.require(:course).permit(:genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, course_images_attributes: [:course_image])
+  	params.require(:course).permit(:genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, :items_count, :human_min, :human_max, :drink, course_images_attributes: [:course_image])
   end
 
   def course_update_params
     params.require(:course).permit(
-      :genre_id, :course_name, :course_price, :course_explanation, :course_time, :status,
+      :genre_id, :course_name, :course_price, :course_explanation, :course_time, :status, :items_count, :human_min, :human_max, :drink,
       [course_images_attributes: [:course_image, :_destroy, :id]])
   end
 end

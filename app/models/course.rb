@@ -8,6 +8,9 @@ class Course < ApplicationRecord
   # mount_uploader :course_image, ImageUploader
 
   enum course_time:[ :"30分", :"60分", :"90分", :"120分", :"180分", :無制限]
+  enum items_count:[ :"3品", :"4品", :"5品", :"6品", :"7品", :"8品", :"9品", :"10品", :"11品", :"12品", :"13品", :"14品", :"15品",:"16品",:"17品"]
+  enum drink: { 飲み放題あり: 0, 飲み放題なし: 1 }
+
 
   def status_text
   	if status == true
