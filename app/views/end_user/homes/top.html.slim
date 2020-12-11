@@ -1,1 +1,29 @@
-h2 topページ
+.container-fluid
+
+  .eu-title 炭火焼き とりとり 本店
+  .eu-main
+    .eu-main__menu
+      - @items_rand.each do |item|
+        .eu-main__items.clearfix
+          .item-img
+            = attachment_image_tag item, :img
+          .item-home
+            .item-name
+              = item.name
+            .item-price
+              = item.price.to_s(:delimited)
+              | 円 (税抜)
+            .item-explanation
+              = item.explanation
+
+    .eu-main__course
+      - @courses_rand.each do |course|
+        .eu-main__course
+          .course-home
+            .course-name
+              = course.course_name
+            .course-price
+              = course.course_price.to_s(:delimited)
+              | 円
+            .course-explanation
+              = course.course_explanation

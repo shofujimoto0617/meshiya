@@ -1,0 +1,55 @@
+.container
+
+  .admin-title コース登録
+  .admin-main
+    = form_with model: @course, url: admin_courses_path, html: {method: :post} do |f|
+      = render 'shared/error_messages', { model: f.object }
+
+      .course__block__form
+        .course__block__form__upload
+          h3.course__block__form__upload__head
+            | コース画像
+            span.require 必須
+          p 最大5枚までアップロードできます
+          .course__drop__box__container
+            .prev-content
+            .label-content
+              label for= "course_images_attributes_0_image" class= "label-box" id= "label-box--0"
+              .label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :course_images do |c_i|
+                = c_i.file_field :course_image, class: "hidden-field"
+                input class= "hidden-field" type= "file" name= "course[course_images_attributes][1][course_image]" id= "course_images_attributes_1_image"
+                input class="hidden-field" type= "file" name= "course[course_images_attributes][2][course_image]" id= "course_images_attributes_2_image"
+                input class="hidden-field" type= "file" name= "course[course_images_attributes][3][course_image]" id= "course_images_attributes_3_image"
+                input class="hidden-field" type= "file" name= "course[course_images_attributes][4][course_image]" id= "course_images_attributes_4_image"
+
+      .form-group
+        = f.label :course_name
+          | コース名
+          span.require 必須
+        = f.text_field :course_name, placeholder: "コース名を入力してください", class: 'title'
+      .form-group
+        = f.label :course_explanation, 'コース説明'
+        = f.text_area :course_explanation, placeholder: "コース内容を入力してください", class: 'text-course'
+      .form-group
+        = f.label :course_price
+          | 税抜価格
+          span.require 必須
+        = f.number_field :course_price, placeholder: "半角英数字 ',' なし"
+      .form-group
+        = f.label :course_time
+          | コース時間
+          span.require 必須
+        = f.select :course_time, Course.course_times.keys, {}
+      .form-group
+        = f.label :genre
+          | ジャンル
+          span.require 必須
+        = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
+      .form-group
+        = f.label :status, "販売ステータス"
+        = f.select :status, [["販売中", true],["販売中止", false]], include_blank: "選択してください"
+
+      .input_btn
+        = f.submit "新規登録", class: 'input_btn__btn'

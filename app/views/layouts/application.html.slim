@@ -19,6 +19,8 @@ html
             span
             span
             span
+        - if flash.notice.present?
+          .alert.alert-success= flash.notice
         = yield
       nav.mobile-menu
         ul.mobile-menu__main
@@ -28,13 +30,25 @@ html
                 span.main-title TOP
                 span.sub-title トップページ
             li.mobile-menu__item
+              = link_to admin_items_path, class: 'mobile-menu__link' do
+                span.main-title MENU
+                span.sub-title メニュー 一覧
+            li.mobile-menu__item
+              = link_to admin_courses_path, class: 'mobile-menu__link' do
+                span.main-title COURSE MENU
+                span.sub-title コース 一覧
+            li.mobile-menu__item
               = link_to admin_genres_path, class: 'mobile-menu__link' do
                 span.main-title Genre
                 span.sub-title ジャンル
             li.mobile-menu__item
               = link_to new_admin_item_path, class: 'mobile-menu__link' do
-                span.main-title ENTRY
+                span.main-title NEW MENU
                 span.sub-title 商品登録
+            li.mobile-menu__item
+              = link_to new_admin_course_path, class: 'mobile-menu__link' do
+                span.main-title NEW COURSE MENU
+                span.sub-title コース登録
             li.mobile-menu__item
               = link_to destroy_admin_session_path, method: :delete, class: 'mobile-menu__link' do
                 span.main-title LOG OUT
