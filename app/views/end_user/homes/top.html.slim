@@ -15,3 +15,15 @@
               | 円 (税抜)
             .item-explanation
               = item.explanation
+
+    .eu-main__course
+      - @courses_rand.each do |course|
+        .eu-main__course
+          .course-home
+            .course-name
+              = course.course_name
+            .course-price
+              = course.course_price.to_s(:delimited)
+              | 円
+            .course-explanation
+              = course.course_explanation
