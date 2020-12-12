@@ -16,14 +16,30 @@
             .item-explanation
               = item.explanation
 
-    .eu-main__course
-      - @courses_rand.each do |course|
-        .eu-main__course
-          .course-home
-            .course-name
-              = course.course_name
-            .course-price
-              = course.course_price.to_s(:delimited)
-              | 円
-            .course-explanation
-              = course.course_explanation
+    .eu-main__menu
+      h2.contentsHeading
+        | コース
+      ul.courseList
+        - @courses_rand.each do |course|
+          li.showContents
+            = link_to course_path do
+              .courseContent.clearfix
+                .courseContentBody
+                  h3.course-name
+                    = course.course_name
+                  ul.courseInfoList.clearfix
+                    li.iconMenu
+                      i.fas.fa-utensils
+                      span= course.items_count
+                    li.iconHeads
+                      i.fas.fa-user-alt
+                      span= course.human_min
+                      span.waveDash ~
+                      span= course.human_max
+                      | 人
+                    li.iconNomiho
+                      i.fas.fa-cocktail
+                      span= course.drink
+                  p.coursePrice
+                    strong= course.course_price.to_s(:delimited)
+                    | 円
