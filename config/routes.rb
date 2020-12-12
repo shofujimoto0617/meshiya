@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope module: :end_user do
   	root 'homes#top'
+    get 'homes/course' => 'homes#course', as: 'course'
   end
 
   namespace :admin do
