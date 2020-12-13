@@ -220,6 +220,7 @@ body {
 
     	    & .menuLook {
     	    	text-align: center;
+    	    	font-size: 15px;
 
     	    	& > a {
     	    		vertical-align: baseline;
@@ -287,6 +288,10 @@ body {
     	    				    width: 340px;
     	    				    height: 340px;
     	    				    margin: 0 auto;
+
+    	    				    .slick-prev:before {
+    	    				    	display: none;
+    	    				    }
 
     	    			        .slick-next:before {
                                     display: none;
@@ -371,7 +376,8 @@ body {
 
     	    & .menuLook {
     	    	text-align: center;
-    	    	display: block;
+    	    	font-size: 15px;
+
 
     	    	& > a {
     	    		vertical-align: baseline;

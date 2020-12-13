@@ -18,7 +18,7 @@
             .item-explanation
               = item.explanation
       .menuLook
-        = link_to 'もっと見る', course_path
+        = link_to 'もっと見る', item_index_path
 
     .eu-main__course
       h2.contentsHeading
@@ -27,7 +27,7 @@
         - @courses_rand.each do |course|
           ul.courseList
             li.showContents
-              = link_to course_path do
+              = link_to course_show_path(course) do
                 .courseContent.clearfix
                   .couresImg
                     - course.course_images.each do |courseimage|
@@ -56,4 +56,4 @@
                       .exudingCouponTitle
                         p.exudingCouponTitleTxt 単品飲み放題1時間680円　(延長1時間も680円でOK)　※LOは終了10分前になります
       .menuLook
-        = link_to 'もっと見る', course_path
+        = link_to 'もっと見る', course_index_path
