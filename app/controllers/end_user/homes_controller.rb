@@ -9,9 +9,6 @@ class EndUser::HomesController < ApplicationController
   def item_index
   end
 
-  def item_show
-  end
-
   def course_index
   end
 
