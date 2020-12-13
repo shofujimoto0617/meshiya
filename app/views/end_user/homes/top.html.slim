@@ -16,16 +16,19 @@
             .item-explanation
               = item.explanation
 
-    .eu-main__menu
+    .eu-main__course
       h2.contentsHeading
         | コース
-      ul.courseList
-        - @courses_rand.each do |course|
+      - @courses_rand.each do |course|
+        ul.courseList
           li.showContents
             = link_to course_path do
               .courseContent.clearfix
+                .couresImg
+                  - course.course_images.each do |courseimage|
+                    = image_tag courseimage.course_image.to_s
                 .courseContentBody
-                  h3.course-name
+                  h3.courseName
                     = course.course_name
                   ul.courseInfoList.clearfix
                     li.iconMenu
