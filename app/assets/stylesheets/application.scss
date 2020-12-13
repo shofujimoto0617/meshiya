@@ -150,6 +150,7 @@ body {
 	background-image: url(bgc.png);
 	background-size: container;
 	color: $cWhite;
+	position: relative;
 
 	& .eu-title {
 	    font-size: 30px;
@@ -164,6 +165,12 @@ body {
 
     	&__menu {
     		border-top: 1px dotted #eeb3b3;
+    		padding: 40px 0 70px;
+
+    		& h2.contentsHeading {
+    			text-align: center;
+    			padding: 20px 0;
+    		}
 
     		& .eu-main__items {
     		    margin: 50px 0;
@@ -210,16 +217,29 @@ body {
     		        }
     		    }
     	    }
+
+    	    & .menuLook {
+    	    	text-align: center;
+
+    	    	& > a {
+    	    		vertical-align: baseline;
+                    background: transparent;
+                    text-decoration: none;
+                    color: inherit;
+                    margin-top: 60px;
+    	    	}
+    	    }
     	}
 
     	&__course {
-    		    // width: 1170px;
-                margin: 0 auto;
-                padding-right: 15px;
-                padding-left: 15px;
-                -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-                border-top: 1px dotted #eeb3b3;
+    		// width: 1170px;
+            margin: 0 auto;
+            padding-right: 15px;
+            padding-left: 15px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-top: 1px dotted #eeb3b3;
+            padding: 40px 0 70px;
 
             & h2.contentsHeading {
             	text-align: center;
@@ -229,12 +249,14 @@ body {
     	    & ul.courseList {
     	    	// float: left;
     	    	// overflow: hidden;
-    	    	flex-wrap: wrap;
+    	    	// flex-wrap: wrap;
     	    	list-style: none;
 
 
     	    	& li.showContents {
     	    		// list-style: none;
+    	    		// background-color: #333;
+    	    		// position: absolute;
     	    		& > a {
     	    			margin: 0;
                         padding: 0;
@@ -243,6 +265,7 @@ body {
                         background: transparent;
                         text-decoration: none;
                         color: inherit;
+
 
     	    		    & .courseContent {
     	    		    	width: 360px;
@@ -254,11 +277,16 @@ body {
                             border: 0;
                             outline: 0;
                             font-size: 100%;
-                            vertical-align: baseline;
-                            background: transparent;
+                            // vertical-align: baseline;
+                            // background: transparent;
+                            // border: 1px solid $cWhite;
+                            margin: 20px 0 0 50px;
+
+
     	 			        & .couresImg {
     	    				    width: 340px;
     	    				    height: 340px;
+    	    				    margin: 0 auto;
 
     	    			        .slick-next:before {
                                     display: none;
@@ -312,10 +340,45 @@ body {
     	    			    		padding-top: 20px;
     	    			    		font-size: 18px;
     	    			    		color: #dc5858;
+    	    			    		text-align: right;
+    	    			    		padding-right: 30px;
+    	    			    	}
+
+    	    			    	& .exudingCoupon {
+    	    			    		margin:25px 0 0 13px;
+
+    	    			    		& .exudingCouponTxt {
+    	    			    			margin-bottom: 10px;
+    	    			    		}
+
+    	    			    		& .exudingCouponTitle {
+    	    			    			width: 320px;
+    	    			    	        border: solid 2px #dc5858;
+
+
+    	    			    	        & p.exudingCouponTitleTxt {
+    	    			    	        	border: solid 2px #ac3131;
+    	    			    	        	padding: 10px;
+    	    			    	        	margin: 0;
+    	    			    	        }
+    	    			    		}
     	    			    	}
     	    			    }
     	    		    }
     	    		}
+    	    	}
+    	    }
+
+    	    & .menuLook {
+    	    	text-align: center;
+    	    	display: block;
+
+    	    	& > a {
+    	    		vertical-align: baseline;
+                    background: transparent;
+                    text-decoration: none;
+                    color: inherit;
+                    margin-top: 60px;
     	    	}
     	    }
     	}
