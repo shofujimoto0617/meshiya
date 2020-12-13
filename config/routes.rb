@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   scope module: :end_user do
   	root 'homes#top'
-    get 'homes/course' => 'homes#course', as: 'course'
+    get 'homes/course_index' => 'homes#course_index', as: 'course_index'
+    get 'homes/course_show' => 'homes#course_show', as: 'course_show'
+    get 'homes/item_index' => 'homes#item_index', as: 'item_index'
+    get 'homes/item_show' => 'homes#item_show', as: 'item_show'
   end
 
   namespace :admin do

@@ -6,6 +6,16 @@ class EndUser::HomesController < ApplicationController
   	@courses_rand = courses.sample(3)
   end
 
-  def course
+  def item_index
   end
+
+  def item_show
+  end
+
+  def course_index
+  end
+
+  def course_show
+  end
+
 end
