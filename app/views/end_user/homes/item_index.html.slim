@@ -1,3 +1,10 @@
 .container-fluid
 
-  .en-title メニュー一覧
+  .eu-title コース一覧
+  .eu-main
+    .eu-main__menu
+      h2.contentsHeading
+        | 料理
+      - @items.each do |item|
+        = item.name
+        = item.price
