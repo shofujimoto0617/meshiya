@@ -7,6 +7,7 @@ class EndUser::HomesController < ApplicationController
   end
 
   def item_index
+  	@items = Item.where(status: true).joins(:genre).where(genres: { is_active: true })
   end
 
   def course_index
