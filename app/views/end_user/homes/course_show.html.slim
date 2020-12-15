@@ -1,3 +1,61 @@
 .container-fluid
 
-  .en-title コース詳細
+  .eu-course
+    .eu-course__heading
+      | コース詳細
+    .eu-course__title
+      = @course.course_name
+    .eu-course__main
+
+      .course-content
+        .couresImg
+          - @course.course_images.each do |courseimage|
+            = image_tag courseimage.course_image.to_s
+
+      .course-content
+        .course-price
+          strong
+            = @course.course_price
+            | 円
+        .course-content__box
+          ul.courseDetailInfo
+            li.course-count
+              i.fas.fa-utensils
+              = @course.items_count
+            li.course-human
+              i.fas.fa-user-alt
+              span= @course.human_min
+              span.waveDash ~
+              span= @course.human_max
+              | 人
+          .course-drink
+            dl
+              dt.iconNomiho
+                i.fas.fa-cocktail
+                = @course.drink
+              dd
+                p 120分制になります。※ラストオーダーは20分前(90分)です
+          .deadline
+            .DetailReservationConditionsWrap
+              .reservationConditionsWrap
+                dl.reservationConditions
+                  dt
+                    span 予約締切
+                  dd
+                    span 来店希望日の当日17時まで
+              .reservationConditionsWrap
+                dl.reservationConditions
+                  dd
+                    span 月〜日・祝前日・祝日
+          .coment
+            p 人数が揃えば宴会コースがお得になります。
+
+      .course-content
+        .course-menu
+          strong コースメニュー
+          .course-menu__all
+            = @course.course_explanation
+
+        .course-drink
+          strong 飲み放題メニュー
+          .course-drink__all

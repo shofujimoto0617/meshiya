@@ -11,9 +11,11 @@ class EndUser::HomesController < ApplicationController
   end
 
   def course_index
+    @courses = Course.where(status: true).joins(:genre).where(genres: { is_active: true })
   end
 
   def course_show
+    @course = Course.find(params[:id])
   end
 
 end
