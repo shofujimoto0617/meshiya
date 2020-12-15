@@ -14,4 +14,9 @@ class Item < ApplicationRecord
   		"販売中止"
   	end
   end
+
+  def self.price_tax(item_price)
+  	price_tax = item_price.to_i * 1.10
+  	@price_tax = price_tax.round
+  end
 end

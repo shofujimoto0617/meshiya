@@ -71,6 +71,12 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 gem 'pry-byebug'
 gem 'bootstrap-sass'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'font-awesome-sass'

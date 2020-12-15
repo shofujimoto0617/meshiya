@@ -1,1 +1,76 @@
-h2 topページ
+.container-fluid
+
+  .eu-title 炭火焼き とりとり 本店
+
+  .slider
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          /.hero__title 炭火焼き とりとり
+          = image_tag "image-1.jpg"
+          /img src="images/image-1.jpg" alt="" /
+        .swiper-slide
+          /.hero__title 炭火焼き とりとり
+          = image_tag "image-2.jpg"
+          /img src="images/image-2.jpg" alt="" /
+        .swiper-slide
+          /.hero__title 炭火焼き とりとり
+          = image_tag "image-3.jpg"
+          /img src="images/image-3.jpg" alt="" /
+
+  .eu-main
+    .eu-main__menu
+      h2.contentsHeading
+        | おすすめ料理
+      - @items_rand.each do |item|
+        .eu-main__items.clearfix
+          .item-img
+            = attachment_image_tag item, :img
+          .item-home
+            .item-name
+              = item.name
+            .item-price
+              = item.price.to_s(:delimited)
+              | 円 (税抜)
+            .item-explanation
+              = item.explanation
+      .menuLook
+        = link_to 'もっと見る', item_index_path
+
+    .eu-main__course
+      h2.contentsHeading
+        | コース
+      .eu-main__content.clearfix
+        - @courses_rand.each do |course|
+          ul.courseList
+            li.showContents
+              = link_to course_show_path(course) do
+                .courseContent.clearfix
+                  .couresImg
+                    - course.course_images.each do |courseimage|
+                      = image_tag courseimage.course_image.to_s
+                  .courseContentBody
+                    h3.courseName
+                      = course.course_name
+                    ul.courseInfoList.clearfix
+                      li.iconMenu
+                        i.fas.fa-utensils
+                        span= course.items_count
+                      li.iconHeads
+                        i.fas.fa-user-alt
+                        span= course.human_min
+                        span.waveDash ~
+                        span= course.human_max
+                        | 人
+                      li.iconNomiho
+                        i.fas.fa-cocktail
+                        span= course.drink
+                    p.coursePrice
+                      strong= course.course_price.to_s(:delimited)
+                      | 円 (税抜)
+                    .exudingCoupon
+                      .exudingCouponTxt このコースで使えるクーポン
+                      .exudingCouponTitle
+                        p.exudingCouponTitleTxt 単品飲み放題1時間680円　(延長1時間も680円でOK)　※LOは終了10分前になります
+      .menuLook
+        = link_to 'もっと見る', course_index_path

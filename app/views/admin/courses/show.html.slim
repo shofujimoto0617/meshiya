@@ -1,0 +1,28 @@
+.container
+
+  .admin-title コース詳細
+  .admin-main
+    .admin-main__course_img
+      - @course.course_images.each do |courseimage|
+        = image_tag courseimage.course_image.to_s
+
+    .admin-main__items
+      .title コース名
+      .title-data= @course.course_name
+    .admin-main__items
+      .title コース説明
+      .title-data-course= safe_join(@course.course_explanation.split("\n"),tag(:br))
+    .admin-main__items
+      .title ジャンル
+      .title-data= @course.genre.name
+    .admin-main__items
+      .title 税込価格 (税抜価格)
+      .title-data
+        = "#{@price_tax}円"
+        = "(#{@course.course_price}円)"
+    .admin-main__items
+      .title 販売ステータス
+      .title-data= @course.status_text
+
+    .link_btn
+      = link_to "編集する", edit_admin_course_path(@course)

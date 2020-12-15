@@ -1,2 +1,47 @@
-h1 Admin::Items#edit
-p Find me in app/views/admin/items/edit.html.slim
+.conatainer
+
+  .admin-title メニュー 編集
+  .admin-main
+    = form_for(@item, url: admin_item_path, html: {method: :patch}) do |f|
+      = render 'shared/error_messages', { model: f.object }
+      .form-group
+
+        - if @item.img.present?
+          .form-img-uploader__saved-img
+            span.form-img-uploader__saved-img-inner
+              = attachment_image_tag @item, :img
+          .block-toggle
+            .block-toggle__press
+              btn.btn
+                | 画像を変更する
+            .block-toggle__content style="display:none;"
+              label for="item_img" class="form-img-uploader__preview"
+                = image_tag 'no_image.jpg'
+              = f.file_field :img, class:'form-img-uploader__save', style: "display:none;"
+              = f.hidden_field :img_id, class:'form-img-uploader__cache'
+              p 変更画像
+        - else
+          label for="item_img" class="form-img-uploader__preview"
+            = image_tag 'no_image.jpg'
+          = f.file_field :img, class:'form-img-uploader__save', style: "display:none;"
+          = f.hidden_field :img_id, class:'form-img-uploader__cache'
+
+      .form-group
+        = f.label :name, '商品名'
+        = f.text_field :name, placeholder: "商品名を入力してください", class: 'title'
+      .form-group
+        = f.label :explanation, '商品説明'
+        = f.text_area :explanation, placeholder: "商品内容を入力してください", class: 'text'
+      .form-group
+        = f.label :genre, 'ジャンル'
+        = f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください"
+      .form-group
+        = f.label :price, "税抜価格"
+        = f.number_field :price, placeholder: "半角英数字 ',' なし"
+      .form-group
+        = f.label :status, "販売ステータス"
+        = f.select :status, [["販売中", true],["販売中止", false]], include_blank: "選択してください"
+
+      .input_btn
+        = f.submit "変更", class: 'input_btn__btn'
+

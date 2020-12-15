@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_085804) do
+ActiveRecord::Schema.define(version: 2020_12_11_055204) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(version: 2020_12_06_085804) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "course_images", force: :cascade do |t|
+    t.integer "course_id"
+    t.string "course_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "course_name", null: false
+    t.integer "course_price", null: false
+    t.text "course_explanation"
+    t.integer "course_time", null: false
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "items_count", default: 0, null: false
+    t.integer "human_min", default: 0, null: false
+    t.integer "human_max", default: 0, null: false
+    t.integer "drink", default: 0, null: false
   end
 
   create_table "genres", force: :cascade do |t|
