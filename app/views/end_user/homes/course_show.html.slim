@@ -14,9 +14,11 @@
 
       .course-content
         .course-price
-          strong
-            = @course.course_price
-            | 円
+          p
+           | クーポンご利用で
+           strong
+             = @price_tax
+             | 円(税込)
         .course-content__box
           ul.courseDetailInfo
             li.course-count

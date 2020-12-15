@@ -446,10 +446,14 @@ body {
                     font-size: 14px;
                     line-height: 1;
 
-                    & > strong {
-                        color: #dc5858;
-                        font-size: 22px;
-                        font-weight: bold;
+                    & p {
+
+                      & > strong {
+                            color: #dc5858;
+                            font-size: 22px;
+                            font-weight: bold;
+                            padding-left: 10px;
+                        }
                     }
                 }
 
@@ -471,12 +475,26 @@ body {
                             width: 50%;
                             display: list-item;
                             text-align: -webkit-match-parent;
+
+                            & > i.fas {
+                                margin-right: 10px;
+                                padding: 3px;
+                                border: 1px solid $cWhite;
+                                border-radius: 50%;
+                            }
                         }
                     }
                     & .course-drink {
                         padding: 15px 20px;
                         font-size: 16px;
                         overflow: hidden;
+
+                        & i.fas {
+                                margin-right: 10px;
+                                padding: 3px;
+                                border: 1px solid $cWhite;
+                                border-radius: 50%;
+                            }
                     }
                     & .deadline {
                         border-top: 1px solid;
