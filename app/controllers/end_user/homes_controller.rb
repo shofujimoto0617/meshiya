@@ -16,6 +16,8 @@ class EndUser::HomesController < ApplicationController
 
   def course_show
     @course = Course.find(params[:id])
+    course_price = @course.course_price
+    @price_tax = Course.price_tax(course_price)
   end
 
 end
