@@ -1,10 +1,18 @@
 .container-fluid
 
-  .eu-title コース一覧
   .eu-main
     .eu-main__menu
       h2.contentsHeading
-        | 料理
+        | 料理 一覧
       - @items.each do |item|
-        = item.name
-        = item.price
+        .eu-main__items.clearfix
+          .item-img
+            = attachment_image_tag item, :img
+          .item-home
+            .item-name
+              = item.name
+            .item-price
+              = item.price.to_s(:delimited)
+              | 円 (税抜)
+            .item-explanation
+              = item.explanation
